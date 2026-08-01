@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Vaibhavi ❤️</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(#081225,#1d0f2e);overflow:hidden;color:#fff}
+#stars,#hearts{position:fixed;inset:0;pointer-events:none}
+.center{display:flex;min-height:100vh;align-items:center;justify-content:center;flex-direction:column;padding:24px;text-align:center}
+#env{width:220px;height:140px;background:#f8e9d2;position:relative;border-radius:8px;cursor:pointer;box-shadow:0 10px 30px #0008}
+#env:before{content:"";position:absolute;left:0;right:0;top:0;border-left:110px solid transparent;border-right:110px solid transparent;border-top:70px solid #e6c9a8}
+#letter{display:none;max-width:700px;background:#ffffff12;backdrop-filter:blur(10px);padding:24px;border-radius:16px;animation:fade .8s}
+@keyframes fade{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+.heart{position:absolute;color:#ff6b9e;animation:up linear forwards}
+@keyframes up{from{transform:translateY(100vh)}to{transform:translateY(-10vh)}}
+button{padding:10px 18px;border:none;border-radius:20px;background:#ff5b8a;color:#fff}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div id="hearts"></div>
+<div class="center">
+<h1>✨ A Little Surprise For Vaibhavi ✨</h1>
+<div id="env" onclick="openLetter()"></div>
+<p>Click the envelope 💌</p>
+<div id="letter">
+<h2>Happy Girlfriend's Day ❤️</h2>
+<p id="type"></p>
+<button onclick="fireworks()">One Last Surprise 🎆</button>
+</div>
+</div>
+<script>
+const msg=`DEAR VAIBHAVI ❤️
+
+First of all, thank you for everything you did for me till now.
+
+I was the one who always gave you tension. Sorry uske liye. Hamesha tumhe daant ta hu, hamesha tumpe gussa karta hu, but that doesn't mean I don't love you. I love you with my whole heart, merii shona. ❤️
+
+Gussa bhi mai aapke upar bas aapko apna maan kar karta hu, because you are mine.
+
+Mera pyaara bacchaa, I was so lucky ki aap mujhe milii. Hamesha mujhe pyaar kartii rhii, hamesha merii fikr kartii rhii.
+
+You did so much for me, jaan. Thank you for all that. ❤️
+
+Aur sorry, aaj Girlfriend's Day pe bhi maine itne late se ye gift bheja. Really sorry, mera baccha.
+
+But that doesn't mean ki mai aapse pyaar nahi karta. I lovee youu sooo muchhh. Bas unn baaton ko express nahi kar pata.
+
+Aap merii sab kuchh ho... my home, my doc, my lovee, my girlfriend, my life partner... everything. ❤️
+
+You are the bestt, jaan.
+
+I hope ye gift aapko khushi de sake, chahe wo thodi si hi kyu na ho. At least I will become a reason you smile. 💖
+
+With lovee,
+
+YOUR AKSHAT 💖`;
+
+function openLetter(){
+document.getElementById('letter').style.display='block';
+let i=0,t=document.getElementById('type');
+let timer=setInterval(()=>{t.textContent+=msg[i++];if(i>=msg.length)clearInterval(timer);},25);
+}
+const c=document.getElementById('stars'),x=c.getContext('2d');
+function rs(){c.width=innerWidth;c.height=innerHeight}rs();onresize=rs;
+let s=[...Array(180)].map(()=>({x:Math.random()*c.width,y:Math.random()*c.height,r:Math.random()*2}));
+(function a(){x.clearRect(0,0,c.width,c.height);x.fillStyle="white";s.forEach(o=>{x.globalAlpha=.4+Math.random()*.6;x.beginPath();x.arc(o.x,o.y,o.r,0,7);x.fill();});requestAnimationFrame(a)})();
+setInterval(()=>{
+let h=document.createElement('div');
+h.className='heart';h.textContent='❤';
+h.style.left=Math.random()*100+'vw';
+h.style.fontSize=(16+Math.random()*20)+'px';
+h.style.animationDuration=(4+Math.random()*4)+'s';
+document.getElementById('hearts').appendChild(h);
+setTimeout(()=>h.remove(),8000);
+},250);
+function fireworks(){alert("🎆 Happy Girlfriend's Day, Vaibhavi! ❤️\n\n— Love, Akshat");}
+</script>
+</body>
+</html>
